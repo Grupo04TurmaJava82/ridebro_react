@@ -4,6 +4,8 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Home from './pages/Home';
+import ViagensPopulares from './components/viagens/ViagensPopulares';
+
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/viagenspopulares" element={<ViagensPopulares />} />
           </Routes>
         </div>
         <Footer />
