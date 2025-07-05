@@ -1,4 +1,4 @@
-import ViagensPopulares from "../components/viagens/ViagensPopulares";
+import ViagensPopulares from "../components/viagens/ViagemCadastradas";
 
 const Home = () => {
   return (

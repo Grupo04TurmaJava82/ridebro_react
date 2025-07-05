@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Home from './pages/Home';
-import ViagensPopulares from './components/viagens/ViagensPopulares';
+import ViagensPopulares from './components/viagens/ViagemCadastradas';
 
 
 
