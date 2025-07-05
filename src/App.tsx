@@ -1,14 +1,11 @@
+import Carrossel from "./components/carrossel/Carrossel";
 
-import './App.css'
-
-function App() {
-  
-
+function Home() {
   return (
     <>
-      Começamdo
+      <Carrossel />
     </>
-  )
+  );
 }
 
-export default App
+export default Home;
