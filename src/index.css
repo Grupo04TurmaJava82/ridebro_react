@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:...&display=swap');
 
@@ -15,5 +16,19 @@
   --text-dark: #2a231f;
   --gray: #d8e1e7;
 
+=======
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "tailwindcss";
+
+/* Definição de variáveis (não use @theme se não estiver com suporte específico) */
+:root {
+  --color-ghost-white: #f3f2fa;
+  --color-lavender: #e1dee9;
+  --color-payne-gray: #585f72;
+  --color-purple-rain: #6d1fff;
+  --color-royal-blue: #4e6ae3;
+  --color-miriam-blue: #2e3a80;
+>>>>>>> origin/Formulario_VIagem
   --font-poppins: "Poppins", "sans-serif";
 }
