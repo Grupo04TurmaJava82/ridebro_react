@@ -17,7 +17,6 @@ export default function FormularioViagem() {
     }
 
     try {
-      // Buscar o veículo pela placa
       const veiculoResponse = await axios.get(
         `https://carona-spring.onrender.com/veiculo/placa/${placa.toUpperCase()}`
       );
@@ -31,7 +30,6 @@ export default function FormularioViagem() {
         return;
       }
 
-      // Montar o corpo da requisição
       const viagem = {
         usuario: { id: Number(usuarioId) },
         veiculo: { id: veiculo.id },
@@ -54,7 +52,7 @@ export default function FormularioViagem() {
       setPartida("");
       setDestino("");
       setDistancia("");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error("Erro ao criar viagem:", error);
       if (error.response?.data) {
@@ -68,15 +66,19 @@ export default function FormularioViagem() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 bg-white shadow rounded-2xl space-y-4"
+      className="max-w-md mx-auto p-8 bg-white shadow-lg rounded-3xl space-y-5 border border-gray-100"
     >
-      <h2 className="text-2xl font-bold text-center">Criar Viagem</h2>
+      <h2 className="text-3xl font-bold text-center text-[#1DB9FF]">
+        Criar Viagem
+      </h2>
 
       <div>
-        <label className="block font-medium mb-1">ID do Usuário</label>
+        <label className="block text-gray-700 font-medium mb-1">
+          ID do Usuário
+        </label>
         <input
           type="number"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           placeholder="Digite o ID do usuário"
           value={usuarioId}
           onChange={(e) => setUsuarioId(e.target.value)}
@@ -84,10 +86,12 @@ export default function FormularioViagem() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Placa do Veículo</label>
+        <label className="block text-gray-700 font-medium mb-1">
+          Placa do Veículo
+        </label>
         <input
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           placeholder="ABC-1234"
           value={placa}
           onChange={(e) => setPlaca(e.target.value.toUpperCase())}
@@ -95,10 +99,12 @@ export default function FormularioViagem() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Local de Partida</label>
+        <label className="block text-gray-700 font-medium mb-1">
+          Local de Partida
+        </label>
         <input
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           placeholder="Ex: Rua das Maravilhas"
           value={partida}
           onChange={(e) => setPartida(e.target.value)}
@@ -106,10 +112,10 @@ export default function FormularioViagem() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Destino</label>
+        <label className="block text-gray-700 font-medium mb-1">Destino</label>
         <input
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           placeholder="Ex: Av. Paulista"
           value={destino}
           onChange={(e) => setDestino(e.target.value)}
@@ -117,10 +123,12 @@ export default function FormularioViagem() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Distância (km)</label>
+        <label className="block text-gray-700 font-medium mb-1">
+          Distância (km)
+        </label>
         <input
           type="number"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           placeholder="Ex: 110"
           value={distancia}
           onChange={(e) => setDistancia(e.target.value)}
@@ -129,7 +137,7 @@ export default function FormularioViagem() {
 
       <button
         type="submit"
-        className="w-full bg-[#1DB9FF] text-white font-semibold py-2 rounded hover:bg-[#17a0e0] transition"
+        className="w-full bg-[#1DB9FF] text-white font-bold py-3 rounded-lg hover:bg-[#17a0e0] transition"
       >
         Criar Viagem
       </button>

@@ -48,15 +48,17 @@ export default function FormVeiculo() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 bg-white shadow rounded-2xl space-y-4"
+      className="max-w-md mx-auto p-8 bg-white shadow-lg rounded-3xl space-y-5 border border-gray-100"
     >
-      <h2 className="text-2xl font-bold text-center">Cadastrar Veículo</h2>
+      <h2 className="text-3xl font-bold text-center text-[#1DB9FF]">
+        Cadastrar Veículo
+      </h2>
 
       <div>
-        <label className="block font-medium mb-1">Modelo</label>
+        <label className="block text-gray-700 font-medium mb-1">Modelo</label>
         <input
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           value={modelo}
           onChange={(e) => setModelo(e.target.value)}
           placeholder="Ex: Volkswagen Gol"
@@ -64,10 +66,10 @@ export default function FormVeiculo() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Placa</label>
+        <label className="block text-gray-700 font-medium mb-1">Placa</label>
         <input
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           value={placa}
           onChange={(e) => setPlaca(e.target.value)}
           placeholder="Ex: ABC-1234"
@@ -75,10 +77,10 @@ export default function FormVeiculo() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Ano</label>
+        <label className="block text-gray-700 font-medium mb-1">Ano</label>
         <input
           type="number"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           value={ano}
           onChange={(e) => setAno(e.target.value)}
           placeholder="Ex: 2022"
@@ -86,10 +88,10 @@ export default function FormVeiculo() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Cor</label>
+        <label className="block text-gray-700 font-medium mb-1">Cor</label>
         <input
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           value={cor}
           onChange={(e) => setCor(e.target.value)}
           placeholder="Ex: Preto"
@@ -97,13 +99,13 @@ export default function FormVeiculo() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">
+        <label className="block text-gray-700 font-medium mb-1">
           Velocidade Média (km/h)
         </label>
         <input
           type="number"
           step="0.1"
-          className="w-full p-2 border rounded"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
           value={velocidadeMedia}
           onChange={(e) => setVelocidadeMedia(e.target.value)}
           placeholder="Ex: 60"
@@ -112,7 +114,7 @@ export default function FormVeiculo() {
 
       <button
         type="submit"
-        className="w-full bg-[#1DB9FF] text-white font-semibold py-2 rounded hover:bg-[#17a0e0] transition"
+        className="w-full bg-[#1DB9FF] text-white font-bold py-3 rounded-lg hover:bg-[#17a0e0] transition"
       >
         Cadastrar Veículo
       </button>
