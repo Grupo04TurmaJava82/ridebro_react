@@ -1,14 +1,15 @@
-
-import './App.css'
+import React from "react";
+import About from "./pages/About";
 
 function App() {
-  
-
   return (
-    <>
-      Começamdo
-    </>
-  )
+    <div>
+      <About />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+
+
