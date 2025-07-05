@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import { buscarViagens } from '../../services/viagemService';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaClock, FaCar } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaClock, FaCar, FaTrash } from 'react-icons/fa';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Usuario {
   nome: string;
@@ -30,6 +34,30 @@ export default function ViagensPopulares() {
       .catch((erro) => console.error('Erro ao buscar viagens:', erro));
   }, []);
 
+  const handleExcluirViagem = async (id: number) => {
+    const resultado = await Swal.fire({
+      title: 'Tem certeza?',
+      text: 'Essa ação não poderá ser desfeita!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#2563eb',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, excluir!',
+      cancelButtonText: 'Cancelar'
+    });
+
+    if (resultado.isConfirmed) {
+      try {
+        await axios.delete(`https://carona-spring.onrender.com/viagens/${id}`);
+        setViagens((prevViagens) => prevViagens.filter((v) => v.id !== id));
+        toast.success('Viagem excluída com sucesso!');
+      } catch (erro) {
+        console.error('Erro ao excluir viagem:', erro);
+        toast.error('Erro ao excluir. Tente novamente mais tarde.');
+      }
+    }
+  };
+
   return (
     <section className="p-6">
       <h2 className="text-2xl font-bold text-center mb-6">Rotas Cadastradas</h2>
@@ -57,10 +85,23 @@ export default function ViagensPopulares() {
               <FaCar className="inline mr-1 text-gray-500" />
               Veículo: {v.veiculo?.modelo ?? 'Não informado'}
             </p>
-            <p className="text-sm text-gray-700">Motorista: {v.usuario?.nome ?? 'Não informado'}</p>
+            <p className="text-sm text-gray-700 mb-4">
+              Motorista: {v.usuario?.nome ?? 'Não informado'}
+            </p>
+
+            {/* Botão de excluir */}
+            <button
+              className="bg-red-700 hover:bg-red-700 text-white text-sm px-3 py-1 rounded flex items-center gap-2"
+              onClick={() => handleExcluirViagem(v.id)}
+            >
+              <FaTrash /> Excluir
+            </button>
           </motion.div>
         ))}
       </div>
+
+      {/* Toastify container para exibir as notificações */}
+      <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );
 }
