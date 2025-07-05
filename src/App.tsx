@@ -1,14 +1,14 @@
-
-import './App.css'
+import "./App.css";
+import FormVeiculo from "./components/veiculo/formveiculo/FormVeiculo";
+import FormViagem from "./components/viagem/formviagem/FormViagem";
 
 function App() {
-  
-
   return (
     <>
-      Começamdo
+      <FormViagem />
+      <FormVeiculo />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
