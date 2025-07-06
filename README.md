@@ -28,7 +28,13 @@ O **RideBro - Frontend** é a interface web responsiva do sistema de caronas Rid
 ## 3. Protótipo e Capturas de Tela
 
 <div align="center">
-    <img src="https://ik.imagekit.io/eduardotosta/carona_spring/image.png?updatedAt=1751637462361" title="Captura de Tela" width="50%"/>
+    <img src="https://ik.imagekit.io/eduardotosta/carona_spring/PRINT%20MENU.png?updatedAt=1751809242828" title="Captura de Tela" width="50%"/>
+</div>
+<div align="center">
+    <img src="https://ik.imagekit.io/eduardotosta/carona_spring/PRINT%20VEICULOS.png?updatedAt=1751809175314" title="Captura de Tela" width="50%"/>
+</div>
+<div align="center">
+    <img src="https://ik.imagekit.io/eduardotosta/carona_spring/PRINT%20VEICULOS.png?updatedAt=1751809175314" title="Captura de Tela" width="50%"/>
 </div>
 
 <br />
