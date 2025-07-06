@@ -16,7 +16,7 @@ function Navbar() {
       {/* BOTÕES */}
       <div className="flex items-center gap-8 text-[#001133] text-lg font-medium">
         <Link
-          to="/veiculo"
+          to="/veiculoscadastrados"
           className="relative group flex items-center gap-2 px-2 py-1 transition-transform duration-300 ease-out hover:-translate-y-0.5"
         >
           <FaCar className="text-gray-600 group-hover:text-cyan-500 transition-colors duration-300" />
@@ -25,7 +25,7 @@ function Navbar() {
         </Link>
 
         <Link
-          to="/viagem"
+          to="/viagenspopulares"
           className="relative group flex items-center gap-2 px-2 py-1 transition-transform duration-300 ease-out hover:-translate-y-0.5"
         >
           <MdTrendingUp className="text-gray-600 group-hover:text-cyan-500 transition-colors duration-300" />

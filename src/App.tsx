@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Home from './pages/Home';
 import ViagensPopulares from './components/viagens/ViagemCadastradas';
+import VeiculosCadastrados from './components/veiculos/VeiculosCadastrados';
 
 
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/viagenspopulares" element={<ViagensPopulares />} />
+            <Route path="/veiculoscadastrados" element={<VeiculosCadastrados />} />
           </Routes>
         </div>
         <Footer />
