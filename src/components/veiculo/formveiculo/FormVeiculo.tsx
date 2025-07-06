@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function FormVeiculo() {
   const [modelo, setModelo] = useState("");
@@ -8,11 +10,20 @@ export default function FormVeiculo() {
   const [cor, setCor] = useState("");
   const [velocidadeMedia, setVelocidadeMedia] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!modelo || !placa || !ano || !cor || !velocidadeMedia) {
-      alert("Preencha todos os campos obrigatórios.");
+      // antigo -> alert("Preencha todos os campos obrigatórios.");
+      // ✅ [MODIFICADO] Substituído alert por SweetAlert2
+      Swal.fire({
+        icon: "warning",
+        title: "Campos obrigatórios",
+        text: "Preencha todos os campos antes de continuar.",
+        confirmButtonColor: "#1DB9FF"
+      });
       return;
     }
 
@@ -31,7 +42,16 @@ export default function FormVeiculo() {
       );
 
       console.log("Veículo cadastrado com sucesso:", resposta.data);
-      alert("Veículo cadastrado com sucesso!");
+      // antigo -> alert("Veículo cadastrado com sucesso!");
+      // ✅ [MODIFICADO] Alerta de sucesso com SweetAlert2
+      await Swal.fire({
+        icon: "success",
+        title: "Sucesso!",
+        text: "Veículo cadastrado com sucesso!",
+        confirmButtonColor: "#1DB9FF"
+      });
+
+      navigate("/veiculo");
 
       // Limpar os campos
       setModelo("");
@@ -41,7 +61,14 @@ export default function FormVeiculo() {
       setVelocidadeMedia("");
     } catch (erro) {
       console.error("Erro ao cadastrar veículo:", erro);
-      alert("Erro ao cadastrar veículo. Verifique os dados e tente novamente.");
+      // antigo -> alert("Erro ao cadastrar veículo. Verifique os dados e tente novamente.");
+      // ✅ [MODIFICADO] Alerta de erro com SweetAlert2
+      Swal.fire({
+        icon: "error",
+        title: "Erro ao cadastrar",
+        text: "Verifique os dados e tente novamente.",
+        confirmButtonColor: "#1DB9FF"
+      });
     }
   };
 

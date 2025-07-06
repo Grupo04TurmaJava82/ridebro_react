@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function FormularioViagem() {
   const [usuarioId, setUsuarioId] = useState("");
@@ -8,11 +10,19 @@ export default function FormularioViagem() {
   const [destino, setDestino] = useState("");
   const [distancia, setDistancia] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!usuarioId || !placa || !partida || !destino || !distancia) {
-      alert("Preencha todos os campos obrigatórios.");
+      // antigo -> alert("Preencha todos os campos obrigatórios.");
+      // ✅ [MODIFICADO] Alerta de campos obrigatórios com SweetAlert2
+      Swal.fire({
+        icon: "warning",
+        title: "Preencha todos os campos obrigatórios!",
+        confirmButtonColor: "#1DB9FF",
+      });
       return;
     }
 
@@ -26,7 +36,13 @@ export default function FormularioViagem() {
         : veiculoResponse.data;
 
       if (!veiculo || !veiculo.id) {
-        alert("Veículo não encontrado.");
+        // antigo -> alert("Veículo não encontrado.");
+        // ✅ [MODIFICADO] Alerta de veículo não encontrado
+        Swal.fire({
+          icon: "error",
+          title: "Veículo não encontrado!",
+          confirmButtonColor: "#1DB9FF",
+        });
         return;
       }
 
@@ -43,8 +59,16 @@ export default function FormularioViagem() {
         viagem
       );
 
-      alert("Viagem criada com sucesso!");
+      // antigo -> alert("Viagem criada com sucesso!");
       console.log("Viagem criada:", resposta.data);
+      // ✅ [MODIFICADO] Alerta de sucesso com SweetAlert2
+      await Swal.fire({
+        icon: "success",
+        title: "Viagem criada com sucesso!",
+        confirmButtonColor: "#1DB9FF",
+      });
+
+      navigate("/veiculo");
 
       // Limpar os campos
       setUsuarioId("");
@@ -56,9 +80,23 @@ export default function FormularioViagem() {
     } catch (error: any) {
       console.error("Erro ao criar viagem:", error);
       if (error.response?.data) {
-        alert("Erro: " + JSON.stringify(error.response.data));
+        // antigo -> alert("Erro: " + JSON.stringify(error.response.data));
+        // ✅ [MODIFICADO] Alerta com erro da API
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: JSON.stringify(error.response.data),
+          confirmButtonColor: "#1DB9FF",
+        });
       } else {
-        alert("Erro inesperado. Verifique os dados.");
+        // antigo -> alert("Erro inesperado. Verifique os dados.");
+        // ✅ [MODIFICADO] Alerta de erro genérico
+        Swal.fire({
+          icon: "error",
+          title: "Erro inesperado",
+          text: "Verifique os dados e tente novamente.",
+          confirmButtonColor: "#1DB9FF",
+        });
       }
     }
   };
