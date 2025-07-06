@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { buscarViagens } from '../../services/viagemService';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaClock, FaCar, FaTrash } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaClock, FaCar, FaTrash, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'; // <-- IMPORTANTE
 
 interface Usuario {
   nome: string;
@@ -60,7 +61,18 @@ export default function ViagensPopulares() {
 
   return (
     <section className="p-6">
-      <h2 className="text-2xl font-bold text-center mb-6">Rotas Cadastradas</h2>
+      <div className="relative flex items-center justify-end mb-6">
+        <h2 className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold">Rotas Cadastradas</h2>
+
+        <Link
+          to="/cadastroViagem"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded flex items-center gap-2 shadow-md transition"
+        >
+          <FaPlus />
+          Cadastrar Viagem
+        </Link>
+      </div>
+
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {viagens.map((v) => (
           <motion.div
@@ -89,7 +101,6 @@ export default function ViagensPopulares() {
               Motorista: {v.usuario?.nome ?? 'Não informado'}
             </p>
 
-            {/* Botão de excluir */}
             <button
               className="bg-red-700 hover:bg-red-700 text-white text-sm px-3 py-1 rounded flex items-center gap-2"
               onClick={() => handleExcluirViagem(v.id)}
@@ -100,7 +111,6 @@ export default function ViagensPopulares() {
         ))}
       </div>
 
-      {/* Toastify container para exibir as notificações */}
       <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );

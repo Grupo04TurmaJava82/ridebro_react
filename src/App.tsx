@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import ViagensPopulares from './components/viagens/ViagemCadastradas';
 import About from './pages/About';
 import VeiculosCadastrados from './components/veiculos/VeiculosCadastrados';
+import FormViagem from './components/viagem/formviagem/FormViagem';
+import FormVeiculo from './components/veiculo/formveiculo/FormVeiculo';
 
 
 
@@ -20,10 +22,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/viagem" element={<ViagensPopulares />} />
-            <Route path="/veiculo" element={<>A ser implementado</>} />
+            <Route path="/veiculo" element={<VeiculosCadastrados/>} />
             <Route path="/sobre" element={<About />} />
-            <Route path="/viagenspopulares" element={<ViagensPopulares />} />
-            <Route path="/veiculoscadastrados" element={<VeiculosCadastrados />} />
+            <Route path="/cadastroVeiculo" element={<FormVeiculo />} />
+            <Route path="/cadastroViagem" element={<FormViagem />} />
           </Routes>
         </div>
         <Footer />

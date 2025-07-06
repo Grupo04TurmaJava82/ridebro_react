@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
-import { FaCar, FaTrash } from 'react-icons/fa';
+import { FaCar, FaTrash, FaPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // <-- IMPORTANTE
 
 interface Veiculo {
   id: number;
@@ -52,10 +53,21 @@ export default function CardVeiculo() {
   };
 
   return (
-    
     <section className="p-6">
       <ToastContainer />
-      <h2 className="text-2xl font-bold text-center mb-6">Veículos Cadastrados</h2>
+
+      <div className="relative flex items-center justify-end mb-6">
+        <h2 className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold ">Veículos Cadastrados</h2>
+
+        <Link
+          to="/cadastroVeiculo"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded flex items-center gap-2 shadow-md transition"
+        >
+          <FaPlus />
+          Cadastrar Veículo
+        </Link>
+      </div>
+
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {veiculos.map((v) => (
           <motion.div
