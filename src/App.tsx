@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import Home from './pages/Home';
 import ViagensPopulares from './components/viagens/ViagemCadastradas';
 import About from './pages/About';
+import VeiculosCadastrados from './components/veiculos/VeiculosCadastrados';
 
 
 
@@ -21,6 +22,8 @@ function App() {
             <Route path="/viagem" element={<ViagensPopulares />} />
             <Route path="/veiculo" element={<>A ser implementado</>} />
             <Route path="/sobre" element={<About />} />
+            <Route path="/viagenspopulares" element={<ViagensPopulares />} />
+            <Route path="/veiculoscadastrados" element={<VeiculosCadastrados />} />
           </Routes>
         </div>
         <Footer />

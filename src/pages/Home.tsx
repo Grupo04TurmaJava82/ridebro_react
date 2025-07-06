@@ -1,4 +1,5 @@
 import Carrossel from "../components/carrossel/Carrossel";
+import VeiculosCadastrados from "../components/veiculos/VeiculosCadastrados";
 import ViagensPopulares from "../components/viagens/ViagemCadastradas";
 
 const Home = () => {
