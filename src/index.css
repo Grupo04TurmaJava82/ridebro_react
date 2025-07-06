@@ -1,13 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:...&display=swap");
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:...&display=swap');
 
 :root {
-  --color-ghost-white: #F3F2FA;
-  --color-lavender: #E1DEE9;
-  --color-payne-gray: #585F72;
-  --color-purple-rain: #6D1FFF;
-  --color-royal-blue: #4E6AE3;
-  --color-miriam-blue: #2E3A80;
+  --color-ghost-white: #f3f2fa;
+  --color-lavender: #e1dee9;
+  --color-payne-gray: #585f72;
+  --color-purple-rain: #6d1fff;
+  --color-royal-blue: #4e6ae3;
+  --color-miriam-blue: #2e3a80;
 
   --primary-blue: #00478f;
   --secondary-blue: #268edc;

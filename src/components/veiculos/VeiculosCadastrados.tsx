@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { buscarVeiculos, deletarVeiculo } from '../../services/veiculoService';
-import Swal from 'sweetalert2';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { motion } from 'framer-motion';
-import { FaCar, FaTrash, FaPlus } from 'react-icons/fa';
-import { Link } from 'react-router-dom'; // <-- IMPORTANTE
+import { useEffect, useState } from "react";
+import { buscarVeiculos, deletarVeiculo } from "../../services/veiculoService";
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
+import { FaCar, FaTrash, FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom"; // <-- IMPORTANTE
 
 interface Veiculo {
   id: number;
@@ -30,23 +30,23 @@ export default function CardVeiculo() {
 
   const excluirVeiculo = async (id: number) => {
     const confirmacao = await Swal.fire({
-      title: 'Tem certeza?',
-      text: 'Você não poderá reverter isso!',
-      icon: 'warning',
+      title: "Tem certeza?",
+      text: "Você não poderá reverter isso!",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, excluir!',
-      cancelButtonText: 'Cancelar',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, excluir!",
+      cancelButtonText: "Cancelar",
     });
 
     if (confirmacao.isConfirmed) {
       try {
         await deletarVeiculo(id);
-        toast.success('Veículo excluído com sucesso!');
+        toast.success("Veículo excluído com sucesso!");
         carregarVeiculos();
       } catch (erro) {
-        toast.error('Erro ao excluir veículo.');
+        toast.error("Erro ao excluir veículo.");
         console.error(erro);
       }
     }
@@ -57,7 +57,9 @@ export default function CardVeiculo() {
       <ToastContainer />
 
       <div className="relative flex items-center justify-end mb-6">
-        <h2 className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold ">Veículos Cadastrados</h2>
+        <h2 className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold ">
+          Veículos Cadastrados
+        </h2>
 
         <Link
           to="/cadastroVeiculo"
@@ -83,7 +85,9 @@ export default function CardVeiculo() {
             </h3>
             <p className="text-sm text-gray-700 mb-1">Placa: {v.placa}</p>
             <p className="text-sm text-gray-700 mb-1">Cor: {v.cor}</p>
-            <p className="text-sm text-gray-700 mb-1">Velocidade Média: {v.velocidadeMedia} km/h</p>
+            <p className="text-sm text-gray-700 mb-1">
+              Velocidade Média: {v.velocidadeMedia} km/h
+            </p>
             <button
               onClick={() => excluirVeiculo(v.id)}
               className="mt-3 flex items-center gap-2 px-3 py-1 bg-red-700 text-white rounded hover:bg-red-700 transition"
