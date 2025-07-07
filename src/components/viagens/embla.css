@@ -1,0 +1,117 @@
+/* =================================
+   CSS PARA O EMBLA CAROUSEL
+   ================================= */
+
+/* --- ESTRUTURA PRINCIPAL --- */
+/* O contêiner principal que esconde o que "vaza" para os lados */
+.embla {
+  overflow: hidden;
+  position: relative; /* Necessário para posicionar os botões dentro dele */
+  padding: 0 45px; /* Espaço nas laterais para os botões não ficarem sobre os slides */
+}
+
+/* O contêiner que segura e alinha todos os slides */
+.embla__container {
+  display: flex;
+  /* Dica: O espaçamento entre os slides é controlado pelo padding no .embla__slide */
+}
+
+/* Cada slide individual do carrossel */
+.embla__slide {
+  position: relative;
+  flex: 0 0 25%; /* Define que cada slide ocupa 33.33% do espaço = 3 slides por vez */
+  min-width: 0;
+  padding-left: 2rem; /* Cria um espaçamento (gap) à esquerda de cada slide */
+}
+
+/* --- BOTÕES DE NAVEGAÇÃO (ANTERIOR/PRÓXIMO) --- */
+.embla__button {
+  position: absolute; /* Posicionamento absoluto em relação ao .embla */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  /* Estilo visual */
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #06b6d4; /* Cor ciano, para combinar com seu design */
+  cursor: pointer;
+  border: 1px solid #06b6d4;
+  transition: all 0.2s ease;
+}
+
+.embla__button:hover:not(:disabled) {
+  background-color: #06b6d4; 
+  color: #ffffff;/* Um azul bem clarinho no hover */
+}
+
+/* Estilo para quando o botão está desabilitado (ex: no primeiro ou último slide) */
+.embla__button:disabled {
+  color: #9ca3af; /* Cor cinza */
+  cursor: default;
+  box-shadow: none;
+}
+
+.embla__button--prev {
+  left: 0;
+}
+
+.embla__button--next {
+  right: 0;
+}
+
+
+/* --- PONTOS DE PAGINAÇÃO (DOTS) --- */
+.embla__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem; /* Espaçamento acima dos pontos */
+}
+
+.embla__dot {
+  width: 1.5rem;  /* Deixa o ponto com formato de "traço" */
+  height: 0.25rem;
+  background-color: #d1d5db; /* Cor do ponto inativo */
+  border: 0;
+  border-radius: 2px;
+  margin: 0 0.25rem; /* Espaçamento entre os pontos */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Estilo para o ponto do slide que está selecionado (ativo) */
+.embla__dot--selected {
+  background-color: #0891b2; /* Cor ciano mais escura para o ponto ativo */
+}
+
+
+/* --- RESPONSIVIDADE --- */
+/* Telas médias (tablets) - mostra 2 slides */
+@media (max-width: 1024px) {
+  .embla__slide {
+    flex-basis: 50%; /* 2 slides por vez */
+  }
+}
+
+/* Telas pequenas (celulares) - mostra 1 slide */
+@media (max-width: 768px) {
+  .embla {
+    padding: 0; /* Remove o padding lateral para o slide ocupar a tela toda */
+  }
+  .embla__slide {
+    flex-basis: 100%; /* 1 slide por vez */
+    padding-left: 0.5rem; /* Reduz o espaçamento */
+    padding-right: 0.5rem;
+  }
+  /* Esconde os botões em telas pequenas, pois o swipe é mais comum */
+  .embla__button {
+    display: none;
+  }
+}
