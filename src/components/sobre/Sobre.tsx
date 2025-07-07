@@ -9,7 +9,7 @@ const peopleData = [
         id: 1,
         name: "Eduardo Tosta",
         photo:
-            "https://media.licdn.com/dms/image/v2/D4D03AQHXiYyoncL14w/profile-displayphoto-shrink_200_200/B4DZYCfeAGH4Ac-/0/1743798526372?e=1756944000&v=beta&t=Aeyi7ntPrjqL0NhtLbea8PPv-LjuNt750Zw0CxPnMXU",
+            "https://ik.imagekit.io/vek/Projeto%20Integrador/Fotos%20Integrantes/Eduardo.jpg?updatedAt=1751907565885",
         bio: "Programador Back-End com experiência em Node.js e bancos de dados relacionais e não-relacionais. Curioso por natureza, busca criar APIs limpas, escaláveis e seguras que sustentam grandes aplicações",
         linkedin: "https://www.linkedin.com/in/eduardotosta-",
         github: "https://github.com/EduardoTosta",
@@ -18,7 +18,7 @@ const peopleData = [
         id: 2,
         name: "Vinícius Balbino",
         photo:
-            "https://media.licdn.com/dms/image/v2/D4D03AQG4LE7CKLyxyA/profile-displayphoto-shrink_200_200/B4DZbUBzHiHsAY-/0/1747313964219?e=1756944000&v=beta&t=4LVt_Mz1AjnerPbPVIlO3gwiJtsOIXHvxm4s2_NnEyA",
+            "https://ik.imagekit.io/vek/Projeto%20Integrador/Fotos%20Integrantes/Vinicius.jpg?updatedAt=1751907565876",
         bio: "Desenvolvedor Full-Stack versátil que transita bem entre o Front e o Back-End. Focado em construir soluções completas, do banco de dados à interface final, sempre buscando boas práticas e performance",
         linkedin: "https://www.linkedin.com/in/vinicius-balbinob",
         github: "https://github.com/balbino-z",
@@ -27,7 +27,7 @@ const peopleData = [
         id: 3,
         name: "Cleiton Reis",
         photo:
-            "https://media.licdn.com/dms/image/v2/D4D03AQHQ7wqsJnTnVA/profile-displayphoto-scale_200_200/B4DZePqaW2H4Ac-/0/1750461949974?e=1756944000&v=beta&t=hwD9EEnFxxSFzPE2g3oeoFFtd4dI-Atb2eeE_AaxFPU",
+            "https://ik.imagekit.io/vek/Projeto%20Integrador/Fotos%20Integrantes/Cleiton.jpg?updatedAt=1751907565732",
         bio: "Desenvolvedor Front-End apaixonado por criar interfaces intuitivas e responsivas. Domina tecnologias como React, HTML, CSS e JavaScript, com forte atenção à usabilidade e acessibilidade",
         linkedin: "https://www.linkedin.com/in/cleitonreisbr",
         github: "https://github.com/JuniorReis-dev",
@@ -36,7 +36,7 @@ const peopleData = [
         id: 4,
         name: "Victor Hugo",
         photo:
-            "https://media.licdn.com/dms/image/v2/D4D03AQFFm6hz6KKczw/profile-displayphoto-shrink_200_200/B4DZchutYdG8AY-/0/1748617582657?e=1756944000&v=beta&t=xqXROtScWmxYkWtEMkga5Ka27k8FSdfLQr3WhGV2RdM",
+            "https://ik.imagekit.io/vek/Projeto%20Integrador/Fotos%20Integrantes/Victor.jpg?updatedAt=1751907565903",
         bio: "Facilitador ágil com sólida experiência em frameworks como Scrum e Kanban. Focado em promover a colaboração entre times multidisciplinares, remoção de impedimentos e entregas de valor contínuo. Apaixonado por transformar processos complexos em jornadas leves e produtivas",
         linkedin: "https://www.linkedin.com/in/victor-hugo-souza-ferreira",
         github: "https://github.com/ProjektVek",
@@ -45,7 +45,7 @@ const peopleData = [
         id: 5,
         name: "Iago Zandone",
         photo:
-            "https://media.licdn.com/dms/image/v2/D4E03AQGoZi_VxeaP2A/profile-displayphoto-shrink_200_200/B4EZTYWdJXG0AY-/0/1738796553403?e=1756944000&v=beta&t=H6Cs0Oy_M-z6nr8CAFVBNCaLvVeDJ6_dsXv7sFp8FNw",
+            "https://ik.imagekit.io/vek/Projeto%20Integrador/Fotos%20Integrantes/Iago.jpg?updatedAt=1751907566034",
         bio: "Dev Mobile com foco em React Native e Flutter. Cria apps robustos e intuitivos que conectam empresas aos usuários na palma da mão. Adepto do design responsivo e das experiências ágeis",
         linkedin: "https://www.linkedin.com/in/iagozandone",
         github: "https://github.com/iagozandone",
@@ -54,7 +54,7 @@ const peopleData = [
         id: 6,
         name: "Ângelo Dos Santos",
         photo:
-            "https://media.licdn.com/dms/image/v2/D4D03AQGlykw73q5q2w/profile-displayphoto-shrink_200_200/B4DZZm4CtBGwAY-/0/1745482690212?e=1756944000&v=beta&t=fVMxBV-_rfH_JcneflZL1uzBMQJxe5T16oICgE9StgU",
+            "https://ik.imagekit.io/vek/Projeto%20Integrador/Fotos%20Integrantes/Angelo.jpg?updatedAt=1751907565933",
         bio: "Especialista em testes de software, com olhar clínico para bugs e foco total na qualidade. Atua com testes manuais e automação, garantindo que cada funcionalidade funcione com excelência antes de chegar ao usuário final.",
         linkedin: "https://www.linkedin.com/in/angelokapunda",
         github: "https://github.com/angelokapunda",
@@ -63,7 +63,7 @@ const peopleData = [
         id: 7,
         name: "Gabriel Julio",
         photo:
-            "https://media.licdn.com/dms/image/v2/D5603AQG72aaIZLfPwA/profile-displayphoto-shrink_200_200/B56ZdaLupUG0AY-/0/1749564714341?e=1756944000&v=beta&t=dvl2B8QUhy3Jg6AEgBmMKGY7B3jVmeyxXg02tTKujxc",
+            "https://ik.imagekit.io/vek/Projeto%20Integrador/Fotos%20Integrantes/Gabriel.jpg?updatedAt=1751907565644",
         bio: "Entusiasta de novas tecnologias e explorador nato do universo do desenvolvimento. Participa ativamente de projetos open source e hackathons, sempre em busca de soluções criativas que impactem o mundo",
         linkedin: "https://www.linkedin.com/in/gabriel-julio-2b9001190",
         github: "https://github.com/GabsJJ",
