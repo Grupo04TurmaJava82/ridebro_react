@@ -25,7 +25,12 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/viagem" element={<ViagensPopulares />} />
             <Route path="/veiculo" element={<VeiculosCadastrados/>} />
-            <Route path="/sobre" element={<About />} />
+            <Route path="/sobre" element={
+              <>
+                <About />
+                <Sobre />
+              </>
+              } />
             <Route path="/cadastroVeiculo" element={<FormVeiculo />} />
             <Route path="/cadastroViagem" element={<FormViagem />} />
             <Route path="/equipe" element={<Sobre />} />
