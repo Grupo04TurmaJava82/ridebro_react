@@ -32,8 +32,9 @@ function App() {
               </>
               } />
             <Route path="/cadastroVeiculo" element={<FormVeiculo />} />
+            <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
             <Route path="/cadastroViagem" element={<FormViagem />} />
-            <Route path="/equipe" element={<Sobre />} />
+            <Route path="/editarviagem/:id" element={<FormViagem />} />
           </Routes>
         </div>
         <Footer />
