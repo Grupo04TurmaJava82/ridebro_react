@@ -9,11 +9,13 @@ import About from './pages/About';
 import VeiculosCadastrados from './components/veiculos/VeiculosCadastrados';
 import FormViagem from './components/viagem/formviagem/FormViagem';
 import FormVeiculo from './components/veiculo/formveiculo/FormVeiculo';
+import Sobre from './components/sobre/Sobre';
 
 
 
 function App() {
   return (
+    
     <BrowserRouter>
       <div className="flex flex-col min-h-screen">
         <Navbar />
@@ -26,6 +28,7 @@ function App() {
             <Route path="/sobre" element={<About />} />
             <Route path="/cadastroVeiculo" element={<FormVeiculo />} />
             <Route path="/cadastroViagem" element={<FormViagem />} />
+            <Route path="/equipe" element={<Sobre />} />
           </Routes>
         </div>
         <Footer />
