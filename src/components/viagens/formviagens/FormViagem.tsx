@@ -45,7 +45,7 @@ export default function FormViagem() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!usuarioId || !placa || !partida || !destino || !distancia) {
+    if (!placa || !partida || !destino || !distancia) {
       Swal.fire({
         icon: "warning",
         title: "Preencha todos os campos obrigatórios!",
@@ -100,6 +100,8 @@ export default function FormViagem() {
         });
       } else {
         // Se não tem ID, é cadastro novo (POST)
+        viagemData.usuario.id = 1; // Garante que o ID não seja enviado no POST
+        console.log(viagemData)
         await axios.post(
           "https://carona-spring.onrender.com/viagens",
           viagemData

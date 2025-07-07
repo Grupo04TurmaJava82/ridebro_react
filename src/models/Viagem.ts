@@ -3,7 +3,7 @@ import type Veiculo from "./Veiculo"
 
 export default interface Viagem {
   id: number
-  usuario: Usuario
+  usuario: Usuario | null
   veiculo: Veiculo
   partida: string
   destino: string
