@@ -104,7 +104,7 @@ const AboutSection = () => {
             ref={sectionRef}
             className="relative min-h-screen bg-canvas text-canvasText py-20"
         >
-            <div className="fixed inset-0 -z-20 pointer-events-none bg-[#00335F]"></div>
+            <div className="fixed inset-0 -z-20 pointer-events-none bg-gray-300"></div>
 
             <div className="container mx-auto px-4">
                 <h1 className="text-5xl md:text-6xl font-extrabold text-center mb-16 relative z-10">
