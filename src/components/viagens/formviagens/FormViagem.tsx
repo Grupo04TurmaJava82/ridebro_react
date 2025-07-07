@@ -104,24 +104,11 @@ export default function FormularioViagem() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-8 bg-white shadow-lg rounded-3xl space-y-5 border border-gray-100"
+      className="max-w-md mx-auto my-10 p-8 bg-white shadow-lg rounded-3xl space-y-5 border border-gray-100"
     >
       <h2 className="text-3xl font-bold text-center text-[#1DB9FF]">
         Criar Viagem
       </h2>
-
-      <div>
-        <label className="block text-gray-700 font-medium mb-1">
-          ID do Usuário
-        </label>
-        <input
-          type="number"
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1DB9FF] placeholder-gray-400 transition"
-          placeholder="Digite o ID do usuário"
-          value={usuarioId}
-          onChange={(e) => setUsuarioId(e.target.value)}
-        />
-      </div>
 
       <div>
         <label className="block text-gray-700 font-medium mb-1">

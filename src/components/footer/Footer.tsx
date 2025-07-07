@@ -15,16 +15,16 @@ function Footer() {
                 
                 <div className='flex gap-4 mt-2'> 
                     <a href="https://github.com/Grupo04TurmaJava82" target='_blank' rel="noopener noreferrer">
-                        <GithubLogo size={48} weight='bold' className="hover:text-blue-500 transition-colors" />
+                        <GithubLogo size={48} weight='bold' className="hover:text-cyan-500 transition-colors" />
                     </a>
                     
                     {/* Adicione os links para as outras redes também */}
                     <a href="https://www.linkedin.com/feed/" target='_blank' rel="noopener noreferrer">
-                      <LinkedinLogo size={48} weight='bold' className="hover:text-blue-500 transition-colors" />
+                      <LinkedinLogo size={48} weight='bold' className="hover:text-cyan-500 transition-colors" />
                     </a>
 
                     <a href="/" target='_blank' rel="noopener noreferrer">
-                      <FacebookLogo size={48} weight='bold' className="hover:text-blue-500 transition-colors" />
+                      <FacebookLogo size={48} weight='bold' className="hover:text-cyan-500 transition-colors" />
                     </a>
                 </div>
             </div>

@@ -4,13 +4,11 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Home from './pages/Home';
-import ViagensPopulares from './components/viagens/ViagemCadastradas';
+import ListaViagens from './components/viagens/listaviagens/ListaViagens';
+import ListaVeiculos from './components/veiculos/listaveiculos/ListaVeiculos';
 import About from './pages/About';
-import VeiculosCadastrados from './components/veiculos/VeiculosCadastrados';
-import FormViagem from './components/viagem/formviagem/FormViagem';
-import FormVeiculo from './components/veiculo/formveiculo/FormVeiculo';
-
-
+import FormViagem from './components/viagens/formviagens/FormViagem';
+import FormVeiculo from './components/veiculos/formveiculo/FormVeiculo';
 
 function App() {
   return (
@@ -21,8 +19,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/viagem" element={<ViagensPopulares />} />
-            <Route path="/veiculo" element={<VeiculosCadastrados/>} />
+            <Route path="/viagem" element={<ListaViagens />} />
+            <Route path="/veiculo" element={<ListaVeiculos />} />
             <Route path="/sobre" element={<About />} />
             <Route path="/cadastroVeiculo" element={<FormVeiculo />} />
             <Route path="/cadastroViagem" element={<FormViagem />} />
