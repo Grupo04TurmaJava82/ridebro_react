@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Slide02() {
   return (
     <div
@@ -40,7 +42,7 @@ function Slide02() {
             Transforme suas rotas em economia real no seu dia a dia!
           </p>
           <button className="bg-[#00AFF5] hover:bg-[#81d4fa] text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-300">
-            <a href="#">Oferecer Carona</a>
+            <Link to="/cadastroVeiculo">Cadastrar Veículo</Link>
           </button>
         </div>
 
