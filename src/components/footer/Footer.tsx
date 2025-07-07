@@ -8,7 +8,7 @@ function Footer() {
             <div className="container flex flex-col items-center pt-6 pb-2">
                 <p className='text-xl font-bold'>
                     <span className="text-black">Ride</span>
-                    <span className="text-blue-500">Bro</span> | Copyright: {data}
+                    <span className="text-cyan-500">Bro</span> | Copyright: {data}
                 </p>
 
                 <p className='text-lg mt-2'>Acesse nossas redes sociais</p>
