@@ -25,8 +25,8 @@ function App() {
             <Route path="/veiculo" element={<VeiculosCadastrados/>} />
             <Route path="/sobre" element={<About />} />
             <Route path="/cadastroVeiculo" element={<FormVeiculo />} />
-            <Route path="/cadastroViagem" element={<FormViagem />} />
             <Route path="/editarveiculo/:id" element={<FormVeiculo />} />
+            <Route path="/cadastroViagem" element={<FormViagem />} />
             <Route path="/editarviagem/:id" element={<FormViagem />} />
           </Routes>
         </div>

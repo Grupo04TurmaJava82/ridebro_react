@@ -63,7 +63,7 @@ export default function FormVeiculo() {
       if (id) {
         // 🔁 Se tiver ID, é edição
         await axios.put(
-          `https://carona-spring.onrender.com/veiculo/${id}`,
+          `https://carona-spring.onrender.com/veiculo`,
           veiculoData
         );
         await Swal.fire({

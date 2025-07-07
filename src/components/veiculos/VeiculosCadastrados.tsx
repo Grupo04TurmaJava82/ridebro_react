@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { buscarVeiculos, deletarVeiculo } from '../../services/veiculoService';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
 import { FaCar, FaTrash, FaPlus, FaEdit } from 'react-icons/fa'; // [ADICIONADO]
 import { Link, useNavigate } from 'react-router-dom'; // [ADICIONADO]
+import { buscarVeiculos, deletarVeiculo } from '../../services/veiculoService';
 
 interface Veiculo {
   id: number;
@@ -62,7 +62,7 @@ export default function CardVeiculo() {
 
         <Link
           to="/cadastroVeiculo"
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded flex items-center gap-2 shadow-md transition"
+          className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-4 py-2 rounded flex items-center gap-2 shadow-md transition"
         >
           <FaPlus />
           Cadastrar Veículo
@@ -76,7 +76,7 @@ export default function CardVeiculo() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-gray-300 p-4 rounded-2xl border-2 border-transparent hover:border-blue-600 shadow-sm hover:shadow-md transition duration-300"
+            className="bg-gray-300 p-4 rounded-2xl border-3 border-transparent hover:border-cyan-500 shadow-sm hover:shadow-md transition duration-300"
           >
             <h3 className="text-lg font-semibold flex items-center gap-2 mb-2">
               <FaCar className="text-blue-600" />
@@ -90,7 +90,7 @@ export default function CardVeiculo() {
             <div className="flex gap-2 mt-3"> {/* [ADICIONADO] */}
               <button
                 onClick={() => navigate(`/editarveiculo/${v.id}`)} // [ADICIONADO]
-                className="flex items-center gap-2 px-3 py-1 bg-yellow-600 text-white rounded hover:bg-yellow-700 transition"
+                className="flex items-center gap-2 px-3 py-1 bg-cyan-500 text-white rounded hover:bg-cyan-600 transition"
               >
                 <FaEdit /> Editar
               </button>
