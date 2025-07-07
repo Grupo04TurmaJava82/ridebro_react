@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom"; // <-- Adicionado para pegar o ID na edição
 import Swal from "sweetalert2";
 
 export default function FormVeiculo() {
@@ -11,23 +11,47 @@ export default function FormVeiculo() {
   const [velocidadeMedia, setVelocidadeMedia] = useState("");
 
   const navigate = useNavigate();
+  const { id } = useParams(); // <-- Pegando o ID da URL, se houver
+
+  // 🔄 Carrega os dados do veículo existente se for edição
+  useEffect(() => {
+    if (id) {
+      axios
+        .get(`https://carona-spring.onrender.com/veiculo/${id}`)
+        .then((res) => {
+          const v = res.data;
+          setModelo(v.modelo);
+          setPlaca(v.placa);
+          setAno(v.ano.toString());
+          setCor(v.cor);
+          setVelocidadeMedia(v.velocidadeMedia.toString());
+        })
+        .catch(() => {
+          Swal.fire({
+            icon: "error",
+            title: "Erro",
+            text: "Não foi possível carregar os dados do veículo.",
+            confirmButtonColor: "#1DB9FF",
+          });
+        });
+    }
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!modelo || !placa || !ano || !cor || !velocidadeMedia) {
-      // antigo -> alert("Preencha todos os campos obrigatórios.");
-      // ✅ [MODIFICADO] Substituído alert por SweetAlert2
       Swal.fire({
         icon: "warning",
         title: "Campos obrigatórios",
         text: "Preencha todos os campos antes de continuar.",
-        confirmButtonColor: "#1DB9FF"
+        confirmButtonColor: "#1DB9FF",
       });
       return;
     }
 
-    const novoVeiculo = {
+    const veiculoData = {
+       id: parseInt(id!),
       modelo,
       placa,
       ano: parseInt(ano),
@@ -36,38 +60,47 @@ export default function FormVeiculo() {
     };
 
     try {
-      const resposta = await axios.post(
-        "https://carona-spring.onrender.com/veiculo",
-        novoVeiculo
-      );
-
-      console.log("Veículo cadastrado com sucesso:", resposta.data);
-      // antigo -> alert("Veículo cadastrado com sucesso!");
-      // ✅ [MODIFICADO] Alerta de sucesso com SweetAlert2
-      await Swal.fire({
-        icon: "success",
-        title: "Sucesso!",
-        text: "Veículo cadastrado com sucesso!",
-        confirmButtonColor: "#1DB9FF"
-      });
+      if (id) {
+        // 🔁 Se tiver ID, é edição
+        await axios.put(
+          `https://carona-spring.onrender.com/veiculo/${id}`,
+          veiculoData
+        );
+        await Swal.fire({
+          icon: "success",
+          title: "Alterações salvas!",
+          text: "Veículo atualizado com sucesso.",
+          confirmButtonColor: "#1DB9FF",
+        });
+      } else {
+        // ➕ Cadastro novo
+        await axios.post(
+          "https://carona-spring.onrender.com/veiculo",
+          veiculoData
+        );
+        await Swal.fire({
+          icon: "success",
+          title: "Sucesso!",
+          text: "Veículo cadastrado com sucesso!",
+          confirmButtonColor: "#1DB9FF",
+        });
+      }
 
       navigate("/veiculo");
 
-      // Limpar os campos
+      // Limpar os campos após cadastro
       setModelo("");
       setPlaca("");
       setAno("");
       setCor("");
       setVelocidadeMedia("");
     } catch (erro) {
-      console.error("Erro ao cadastrar veículo:", erro);
-      // antigo -> alert("Erro ao cadastrar veículo. Verifique os dados e tente novamente.");
-      // ✅ [MODIFICADO] Alerta de erro com SweetAlert2
+      console.error("Erro ao salvar veículo:", erro);
       Swal.fire({
         icon: "error",
-        title: "Erro ao cadastrar",
+        title: "Erro",
         text: "Verifique os dados e tente novamente.",
-        confirmButtonColor: "#1DB9FF"
+        confirmButtonColor: "#1DB9FF",
       });
     }
   };
@@ -78,7 +111,7 @@ export default function FormVeiculo() {
       className="max-w-md mx-auto p-8 bg-white shadow-lg rounded-3xl space-y-5 border border-gray-100"
     >
       <h2 className="text-3xl font-bold text-center text-[#1DB9FF]">
-        Cadastrar Veículo
+        {id ? "Editar Veículo" : "Cadastrar Veículo"}
       </h2>
 
       <div>
@@ -143,7 +176,7 @@ export default function FormVeiculo() {
         type="submit"
         className="w-full bg-[#1DB9FF] text-white font-bold py-3 rounded-lg hover:bg-[#17a0e0] transition"
       >
-        Cadastrar Veículo
+        {id ? "Salvar Alterações" : "Cadastrar Veículo"}
       </button>
     </form>
   );

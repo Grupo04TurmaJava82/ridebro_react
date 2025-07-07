@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { buscarViagens } from '../../services/viagemService';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaClock, FaCar, FaTrash, FaPlus } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaClock, FaCar, FaTrash, FaPlus, FaEdit } from 'react-icons/fa'; 
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom'; // <-- IMPORTANTE
+import { Link, useNavigate } from 'react-router-dom'; 
 
 interface Usuario {
   nome: string;
@@ -28,6 +28,7 @@ interface Viagem {
 
 export default function ViagensPopulares() {
   const [viagens, setViagens] = useState<Viagem[]>([]);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     buscarViagens()
@@ -101,16 +102,26 @@ export default function ViagensPopulares() {
               Motorista: {v.usuario?.nome ?? 'Não informado'}
             </p>
 
-            <button
-              className="bg-red-700 hover:bg-red-700 text-white text-sm px-3 py-1 rounded flex items-center gap-2"
-              onClick={() => handleExcluirViagem(v.id)}
-            >
-              <FaTrash /> Excluir
-            </button>
+            {/* Botões de ação */}
+            <div className="flex gap-2"> 
+              <button
+                className="bg-yellow-600 hover:bg-yellow-700 text-white text-sm px-3 py-1 rounded flex items-center gap-2"
+                onClick={() => navigate(`/editarviagem/${v.id}`)} 
+              >
+                <FaEdit /> Editar
+              </button>
+
+              <button
+                className="bg-red-700 hover:bg-red-800 text-white text-sm px-3 py-1 rounded flex items-center gap-2"
+                onClick={() => handleExcluirViagem(v.id)}
+              >
+                <FaTrash /> Excluir
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>
-
+      
       <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );

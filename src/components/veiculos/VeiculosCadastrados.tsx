@@ -4,8 +4,8 @@ import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
-import { FaCar, FaTrash, FaPlus } from 'react-icons/fa';
-import { Link } from 'react-router-dom'; // <-- IMPORTANTE
+import { FaCar, FaTrash, FaPlus, FaEdit } from 'react-icons/fa'; // [ADICIONADO]
+import { Link, useNavigate } from 'react-router-dom'; // [ADICIONADO]
 
 interface Veiculo {
   id: number;
@@ -18,6 +18,7 @@ interface Veiculo {
 
 export default function CardVeiculo() {
   const [veiculos, setVeiculos] = useState<Veiculo[]>([]);
+  const navigate = useNavigate(); // [ADICIONADO]
 
   useEffect(() => {
     carregarVeiculos();
@@ -57,7 +58,7 @@ export default function CardVeiculo() {
       <ToastContainer />
 
       <div className="relative flex items-center justify-end mb-6">
-        <h2 className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold ">Veículos Cadastrados</h2>
+        <h2 className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold">Veículos Cadastrados</h2>
 
         <Link
           to="/cadastroVeiculo"
@@ -84,12 +85,23 @@ export default function CardVeiculo() {
             <p className="text-sm text-gray-700 mb-1">Placa: {v.placa}</p>
             <p className="text-sm text-gray-700 mb-1">Cor: {v.cor}</p>
             <p className="text-sm text-gray-700 mb-1">Velocidade Média: {v.velocidadeMedia} km/h</p>
-            <button
-              onClick={() => excluirVeiculo(v.id)}
-              className="mt-3 flex items-center gap-2 px-3 py-1 bg-red-700 text-white rounded hover:bg-red-700 transition"
-            >
-              <FaTrash /> Excluir
-            </button>
+
+            {/* AÇÕES */}
+            <div className="flex gap-2 mt-3"> {/* [ADICIONADO] */}
+              <button
+                onClick={() => navigate(`/editarveiculo/${v.id}`)} // [ADICIONADO]
+                className="flex items-center gap-2 px-3 py-1 bg-yellow-600 text-white rounded hover:bg-yellow-700 transition"
+              >
+                <FaEdit /> Editar
+              </button>
+
+              <button
+                onClick={() => excluirVeiculo(v.id)}
+                className="flex items-center gap-2 px-3 py-1 bg-red-700 text-white rounded hover:bg-red-800 transition"
+              >
+                <FaTrash /> Excluir
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>
