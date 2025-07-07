@@ -75,7 +75,7 @@ export default function FormVeiculo() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-8 bg-white shadow-lg rounded-3xl space-y-5 border border-gray-100"
+      className="max-w-md mx-auto my-10 p-8 bg-white shadow-lg rounded-3xl space-y-5 border border-gray-100"
     >
       <h2 className="text-3xl font-bold text-center text-[#1DB9FF]">
         Cadastrar Veículo
