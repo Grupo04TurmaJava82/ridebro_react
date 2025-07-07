@@ -1,7 +1,7 @@
 import type Viagem from "./Viagem"
 
 export default interface Usuario {
-  id: number
+  id: number | undefined
   nome: string
   usuario: string
   senha: string

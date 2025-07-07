@@ -1,7 +1,7 @@
 import type Viagem from "./Viagem";
 
 export default interface Veiculo {
-    id: number;
+    id: number | undefined;
     modelo: string;
     placa: string;
     ano: number;

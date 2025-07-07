@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import { GridLoader } from 'react-spinners'
 import { FaPlus } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom'; // <-- IMPORTANTE
@@ -25,7 +25,7 @@ export default function ListaViagens() {
 
   useEffect(() => {
     buscarViagens();
-  }, [viagens.length]);
+  }, []);
 
   return (
     <section className="p-6 w-full">
@@ -39,6 +39,19 @@ export default function ListaViagens() {
           <FaPlus />
           Cadastrar Viagem
         </Link>
+      </div>
+
+      <div className='flex'>
+        {isLoading && (
+            <GridLoader
+              color='#155dfc'
+              margin={5}
+              size={50}
+              speedMultiplier={1}
+              aria-label="grid-loading"
+              className='mx-auto my-8'
+            />
+          )}
       </div>
 
       {(!isLoading && viagens.length === 0) && (

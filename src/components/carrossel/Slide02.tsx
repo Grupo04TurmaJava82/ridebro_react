@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Slide02() {
   return (
     <div
@@ -39,9 +41,12 @@ function Slide02() {
           <p className="text-lg md:text-1.5xl text-center">
             Transforme suas rotas em economia real no seu dia a dia!
           </p>
-          <button className="bg-[#00AFF5] hover:bg-[#81d4fa] text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-300">
-            <a href="#">Oferecer Carona</a>
-          </button>
+            <Link
+              to="/cadastroViagem"
+              className="bg-[#00AFF5] hover:bg-[#81d4fa] text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-300"
+            >
+              Oferecer Carona
+            </Link>
         </div>
 
         <div className="flex justify-center items-center w-full">
